@@ -1,7 +1,14 @@
-
-def prime? n
+def prime?(n)
   if n.negative? || n == 0 || n == 1
-  return false
-  else (2..Math.sqrt(n)).none? {|f| n % f == 0}
-end
+    false
+  else
+      n_root = Math.sqrt(n).to_i
+	    trial_division = (2..n_root).to_a
+	    trial_division.each do |int|
+		      if n % int == 0
+			      return false
+		      end
+	    end
+      true
+	end
 end
